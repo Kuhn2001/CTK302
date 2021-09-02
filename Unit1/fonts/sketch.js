@@ -13,7 +13,6 @@ textFont(f1);
 textSize(24);
 text("hello world",width/2,100);
 
-
 textFont(f2);
 textSize(24);
 text("Sic Parvis Magna", width/2,160);
