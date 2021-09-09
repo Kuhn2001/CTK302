@@ -428,7 +428,7 @@ stroke(255);
  fill(255);
  textFont(font1);
  textSize(15);
-text("This is Elmer Johnson Benedict III. He is a astronaut from a long line of British Space Cadet. \n He has been sent to the moon to try some experiments. One of these experiments has \n to do something with those balloons he has there. Let's see what he does with them.",20,20);
+text("This is Elmer Johnson Benedict III. He is a astronaut from a long line of British Space Cadet. \n He has been sent to the moon to try some experiments. One of these experiments has \n to do something with these balloons he has over there. Let's see what he does with them.",20,20);
   }
 
   // this shows mouse location - comment it out when you're done!
