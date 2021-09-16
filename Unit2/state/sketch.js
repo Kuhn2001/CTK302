@@ -1,5 +1,4 @@
 let state = 0;
-let timer = 0;
 
 function setup() {
   createCanvas(400, 400);
