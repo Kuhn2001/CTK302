@@ -12,8 +12,8 @@ function draw() {
 
     case 0:
       background('red');
-      for (var j = 0 ; j <= height ; j+=20) {
-      for(var i = 0 ; i <= width ; i+=20){
+      for (let j = 0 ; j <= height ; j+=20) {
+      for(let i = 0 ; i <= width ; i+=20){
         fill(random(54),random(255),random(134));
         stroke(13, 247, 255)
     rect(i,j,5,5) ;
@@ -23,8 +23,8 @@ function draw() {
       break;
       case 1:
       background(255, 73, 13);
-      for (var j = 0 ; j <= height ; j+=20) {
-      for(var i = 0 ; i <= width ; i+=20){
+      for (let j = 0 ; j <= height ; j+=20) {
+      for(let i = 0 ; i <= width ; i+=20){
         fill(random(255),random(88),random(166));
         noStroke();
     rect(i,j,5,15) ;
@@ -35,8 +35,8 @@ function draw() {
 
        case 2:
       background(18, 204, 255);
-      for (var j = 0 ; j <= height ; j+=20) {
-      for(var i = 0 ; i <= width ; i+=20){
+      for (let j = 0 ; j <= height ; j+=20) {
+      for(let i = 0 ; i <= width ; i+=20){
       fill(random(255),random(0),random(105));
       ellipse(i,j,30,30) ;
 }
@@ -45,8 +45,8 @@ function draw() {
 
        case 3:
       background(random(13),random(186),random(255));
-      for (var j = 0 ; j <= height ; j+=10) {
-      for(var i = 0 ; i <= width ; i+=10){
+      for (let j = 0 ; j <= height ; j+=10) {
+      for(let i = 0 ; i <= width ; i+=10){
     fill(247, 255, 13);
     arc(i, j, 10, 10, PI, TWO_PI);
   }
@@ -55,8 +55,8 @@ function draw() {
 
        case 4:
       background(0);
-      for (var j = 0 ; j <= height ; j+=20) {
-      for(var i = 0 ; i <= width ; i+=20){
+      for (let j = 0 ; j <= height ; j+=20) {
+      for(let i = 0 ; i <= width ; i+=20){
         fill(random(255));
         rect(i, j, 5, 20);
   }
