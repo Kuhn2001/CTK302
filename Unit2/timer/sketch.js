@@ -12,7 +12,7 @@ function draw() {
 
     case 0:
       background('red');
-      //text("state 0", 100, 100);
+      text("You don't need a parachute to go skydiving", 100, 100);
       for (var j = 0 ; j <= height ; j+=20) {
       for(var i = 0 ; i <= width ; i+=20){
     rect(i,j,5,5) ;
@@ -22,7 +22,7 @@ function draw() {
       break;
       case 1:
       background('yellow');
-      //text("state 0", 100, 100);
+      text("you need a parachute to go skydiving twice.", 100, 100);
 
       for (var j = 0 ; j <= height ; j+=20) {
       for(var i = 0 ; i <= width ; i+=20){
