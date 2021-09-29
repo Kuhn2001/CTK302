@@ -1,6 +1,5 @@
 var mic;
 var vol;
-var c = 'green';
 let x = 0 ;
 
 function setup() {
@@ -13,28 +12,58 @@ function setup() {
 
 
 function draw() {
-  background(c);
+  background(35, 198, 247);
+noStroke();
+  fill(255);
+   ellipse(68, 38, 72, 72);
+
+   fill(255);
+   ellipse(116, 38, 72, 72);
+
+   fill(255);
+   ellipse(154, 65, 72, 72);
+
+     fill(255);
+   ellipse(25, 75, 72, 72);
+
+     fill(255);
+   ellipse(60, 105, 72, 72);
+
+     fill(255);
+   ellipse(96, 73, 72, 72);
+
+     fill(255);
+   ellipse(120, 105, 72, 72);
+
 
   // get the sound input
   vol = (mic.getLevel().toFixed(2)); // returned level is between 0 and 1
 
   // check how loud the input is
-  if (vol > .20) { // if the volume is LOUD?
+  if (vol > .100) { // if the volume is LOUD?
     // do something
 
-    c = color(random(255), random(255), random(255)); // here I'm setting the background to a random color
+
   }
 
   // extra stuff for debugging
   //textSize(18);
   //text("Click the screen first to give\npermission for mic input.\nMy volume is " + vol, 10, 60);
 
-  rect(vol * 100, 100, 50, 50);
+    fill(140, 143, 139);
+  ellipse(vol*500, 200, 200, 75,75);
+    fill(57, 217, 4);
+  arc(vol* 700, 170, 75, 75, PI, TWO_PI);
 
-  rect(vol * 300, 150, 50, 50);
+
+
+
+
 
   x = map(vol, 0, .2, 0, width) ;
-  rect(x, 200, 50, 50);
+  //line(x, 200, 50, 50);
+
+
 
 }
 
