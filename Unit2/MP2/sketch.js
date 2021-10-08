@@ -85,9 +85,9 @@ if (timer > 2 * 60) {
 
  function mouseReleased(){
    if (song1.isPlaying()) {
-     song1.pause()
+     song1.loop()
    }else {
-     song1.loop();
+     song1.pause();
    }
  }
 
