@@ -93,5 +93,5 @@ if (timer > 2 * 60) {
 
 function touchStarted() {
   getAudioContext().resume();
-  //programStarted = true;
+  programStarted = true;
 }
