@@ -4,17 +4,15 @@ let x = 0;
 let timer = 0;
 let state = 0;
 let programStarted = false;
-let song1,img,begin,couple, some, most;
+let img, begin, couple, some, most;
+let song1;
 
 
-function preload(){
+function preload() {
   song1 = loadSound("assets/beyondtheline.mp3");
 }
-
-
 function setup() {
   createCanvas(800, 600);
-  song1.loop() ;
   couple = loadImage("assets/couple.jpg");
   some = loadImage("assets/some.jpg");
   most = loadImage("assets/most.jpg");
@@ -25,6 +23,7 @@ function setup() {
   mic = new p5.AudioIn(); // what does "new" mean?
   mic.start();
   imageMode(CENTER);
+  song1.pause();
   //loadImage
   //adventure = loadImage("assets/adventure.jpg")
 }
@@ -55,7 +54,6 @@ function draw() {
   switch (state) {
     case 0: //curtian opeing
       image(img, width / 2, height / 2, 800, 600);
-
       break;
     case 1: //splash screen
       image(begin, width / 2, height / 2, 800, 600);
@@ -76,20 +74,14 @@ function draw() {
 
 }
 
-timer++;
-if (timer > 2 * 60) {
-  timer = 0;
-  state++;
- if (state > 2) state = 0;
- }
 
- function mouseReleased(){
-   if (song1.isPlaying()) {
-     song1.pause()
-   }else {
-     song1.loop();
-   }
- }
+function mouseReleased() {
+  if (song1.isPlaying()) {
+    song1.pause()
+  } else {
+    song1.loop();
+  }
+}
 
 function touchStarted() {
   getAudioContext().resume();
