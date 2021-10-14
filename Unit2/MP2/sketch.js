@@ -54,21 +54,26 @@ function draw() {
   switch (state) {
     case 0: //curtian opeing
       image(img, width / 2, height / 2, 800, 600);
+      song1.pause();
       break;
     case 1: //splash screen
       image(begin, width / 2, height / 2, 800, 600);
+      song1.isPlaying();
       break;
 
     case 2:
       image(couple, width / 2, height / 2, 800, 600);
+          song1.isPlaying();
       break;
 
     case 3:
       image(some, width / 2, height / 2, 800, 600);
+          song1.isPlaying();
       break;
 
     case 4:
       image(most, width / 2, height / 2, 800, 600);
+          song1.isPlaying();
       break;
   }
 
