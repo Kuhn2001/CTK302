@@ -16,8 +16,11 @@ function setup() {
 
 function draw() {
   background(255, 85, 0);
-  image(witch,width/2,height/2,100,100);
+
   cars.push(new Car());
+  fill(0);
+  textSize(30);
+  text("Happy Halloween!", 150,50);
 
 
   for (let i = 0; i < cars.length; i++) {
@@ -35,7 +38,7 @@ function draw() {
 class Car {
   constructor() {
     // attributes
-    this.pos = createVector(mouseX, mouseY);
+    this.pos = createVector(120, 120);
     this.vel = createVector(random(10), random(10));
     this.size = random(15,25);
     this.r = random(255);
@@ -48,11 +51,13 @@ class Car {
   display() {
     fill(random(220),random(0),random(202, 248) ,this.a);
     ellipse(this.pos.x,this.pos.y , this.size, this.size);
+    image(witch,50,50,100,100);
+
 
   }
   move() {
     this.pos.add(this.vel);
-       this.a -= 2;
+    this.a -= 2;
     // if (this.pos.x > width) this.pos.x = 0;
     // if (this.pos.x < 0) this.pos.x = width;
     // if (this.pos.y > height) this.pos.y = 0;
