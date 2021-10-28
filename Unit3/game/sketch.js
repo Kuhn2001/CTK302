@@ -4,14 +4,22 @@ let maxCars = 10;
 let state = 0;
 let timer = 0;
 let carsEaten = 0;
-let fist,german;
+let fist,german,win,splashScreen, loseRound,backgroundOfGame,freedom;
 let germantimer = 0;
 let round = 1;
+let f1;
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  f1 = loadFont("assets/AlteSchwabacher.ttf");
 fist = loadImage("assets/fist.png");
 german = loadImage("assets/german.png");
+backgroundOfGame = loadImage("assets/backgroundOfGame.jpg");
+loseRound = loadImage("assets/loseRound.jpg");
+splashScreen = loadImage("assets/splashScreen.jpg");
+win = loadImage("assets/win.jpg");
+freedom = loadImage("assets/freedom.jpeg");
 
 
  for (let i = 0; i < maxCars; i++) {
@@ -26,37 +34,48 @@ function draw() {
 textSize(30);
   switch (state) {
     case 0:
-    //button  if (mouseX < )
-      background(252, 186, 3);
-      fill('white');
-      text("WAR. War never Changes! Click to Start", 100, 100);
-      // image(splashcreen, .....)
+
+      // background(252, 186, 3);
+      // fill('white');
+      // text("WAR. War never Changes! Click to Start", 100, 100);
+      image(splashScreen, 0, 0,windowWidth, windowHeight);
       break;
+
 
     case 1:
       game();
       timer++;
-      if (timer > 60 * 60) {
+      if (timer > 15 * 60) {
         state = 3;
         timer = 0;
       }
       break;
 
     case 2:
-      background(72, 87, 250);
-      fill('white');
-      text("win", 100, 100);
+    //image(win, 0, 0,windowWidth, windowHeight);
+      background(245, 5, 5);
+      fill(255);
+      textFont(f1);
+      textSize(120);
+      text("Mehr \n Kommen", 100, 350);
       break;
 
     case 3:
-      background(196, 6, 25);
-      fill('white');
-      text("lose", 100, 100);
+      background(0);
+      fill(245, 5, 5);
+      textFont(f1);
+      textSize(120);
+      text("Das \n Sterben",100, 350);
+      //image(asRound, 0, 0,windowWidth, windowHeight);
       break;
 
       case 4:
-      background(255, 129, 3);
-      text("K.O Winner", 100,100);
+      // background(255, 129, 3);
+        image(freedom, 0, 0,windowWidth, windowHeight);
+       fill(255);
+       textFont(f1);
+       textSize(120);
+      text("Freiheit!", 600,100);
       break;
 
   }
@@ -77,13 +96,13 @@ function mouseReleased() {
         state = 4;
         //round = 0;
       } else {
-      state = 0;
+      state = 1;
     }
       break;
 
     case 3: //lose
       resetTheGame();
-      state = 0;
+      state = 1;
       break;
 
     case 4:
@@ -94,23 +113,26 @@ function mouseReleased() {
 }
 
 function game() {
-  background(28, 189, 170);
+  image(backgroundOfGame, 0, 0,windowWidth, windowHeight);
   switch (round){
     case 1:
-    background(237, 0, 16);
+    image(backgroundOfGame, 0, 0,windowWidth, windowHeight);
     // background round 1
     break;
 
     case 2:
-    background(29, 219, 149);
+    image(backgroundOfGame, 0, 0,windowWidth, windowHeight);
     // background round 2
     break;
 
     case 3:
-    background(217, 158, 30);
+    image(backgroundOfGame, 0, 0,windowWidth, windowHeight);
     // backgound round 3
     break;
   }
+  fill(245, 5, 5);
+  textFont(f1);
+  textSize(60);
   text("round "+round, 100,100);
   germantimer++;
   if (germantimer > 1*60){
@@ -133,9 +155,11 @@ function game() {
     state = 2;
   }
 //print out how many Cars are left
-fill(0);
-textSize(16);
-text("cars left: "+ cars.length+ "cars we collected = "+ carsEaten, 20,30);
+
+fill(255);
+textFont(f1);
+textSize(30);
+text("Germans left: "+ cars.length+ " Knock out: "+ carsEaten, 20,30);
 
 
   //make frog
