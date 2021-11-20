@@ -8,6 +8,7 @@ let x = 0.0,
   y = 0.0,
   z = 0.0; // accelerometer variables
 let fallImage, grass;
+let f1;
 let xPosition = 0;
 let yPosition = 0;
 
@@ -17,8 +18,10 @@ function setup() {
 
   createCanvas(windowWidth, windowHeight);
 
+
   bunnyImage = loadImage("assets/lefes.png");
   grass = loadImage("assets/grass.jpg");
+  f1 = loadFont("assets/PinyonScript-Regular.ttf");
   imageMode(CENTER);
   rectMode(CENTER);
 
@@ -65,6 +68,7 @@ function draw() {
   noStroke();
   textSize(30);
   textAlign(CENTER);
+  textfont(f1);
   text("As Fall is leaving so are the Leaves", width / 2, height / 2);
 
 }
