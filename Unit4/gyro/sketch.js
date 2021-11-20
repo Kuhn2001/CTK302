@@ -66,10 +66,10 @@ function draw() {
   // Text that makes CTK type in the background
   fill(255, 136, 0);
   noStroke();
-  textSize(50);
+  textSize(30);
   textAlign(CENTER);
   textFont(f1);
-  text("As Fall is leaving so are the Leaves", width / 2, height / 2);
+  text("As Fall is leaving \nso are the Leaves", width / 2, height / 2);
 
 }
 
