@@ -1,8 +1,12 @@
 /* For mobile phones - accesses accelerometer and gyroscope.
 Make sure you turn on orientation lock on your iPhone or Android device. */
 
-let alpha = 0, beta = 0 , gamma = 0; // gyroscope variables
-let x = 0.0, y = 0.0, z = 0.0 ; // accelerometer variables
+let alpha = 0,
+  beta = 0,
+  gamma = 0; // gyroscope variables
+let x = 0.0,
+  y = 0.0,
+  z = 0.0; // accelerometer variables
 let fallImage, grass;
 let xPosition = 0;
 let yPosition = 0;
@@ -22,7 +26,7 @@ function setup() {
 
 function draw() {
 
-image(grass,0,0, windowWidth,windowHeight);
+  image(grass, windowWidth, windowHeight);
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
@@ -59,7 +63,7 @@ image(grass,0,0, windowWidth,windowHeight);
   // Text that makes CTK type in the background
   fill(255, 136, 0);
   noStroke();
-  textSize(300);
+  textSize(30);
   textAlign(CENTER);
   text("As Fall is leaving so are the Leaves", width / 2, height / 2);
 
