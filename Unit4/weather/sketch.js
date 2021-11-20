@@ -6,11 +6,16 @@ var windspeed = 0 ;
 var temp = 0;
 var humid = 0;
 var desc = 0;
+let f1;
+let grayslake,cloud;
 
 
 function setup() {
   createCanvas(400, 400);
-
+  f1 = loadFont("assets/DavidLibre-Regular.ttf");
+  grayslake = loadImage("assets/grayslake.jpg");
+imageMode(CENTER);
+  cloud = loadImage("assets/cloud.png");
   // HERE is the call to get the weather.
 
   var myCityString = 'https://api.openweathermap.org/data/2.5/weather?zip=60030,US&units=imperial&';
@@ -47,8 +52,10 @@ function draw() {
       break;
 
     case 1:
-      background(200);
+      image(grayslake, width/2,height/2,500,500);
       fill('black');
+      textFont(f1);
+      textSize(15);
       text("What is the weather in " + weather.name + "?", 20, 20);
       text("Windspeed is " + windspeed, 20, 40);
       text("Temperature is " + temp, 20, 60);
@@ -58,7 +65,8 @@ function draw() {
       // cloud
       fill('white');
       noStroke();
-      ellipse(x, 300, 200, 100);
+      image(cloud,x,300, 450,450);
+      //ellipse(x, 300, 200, 100);
 
       // move the cloud's x position
       x = x + windspeed;
