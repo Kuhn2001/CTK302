@@ -5,6 +5,7 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
+let badleave, bag, grass2, leave;
 
 // var bunnyImage;
 var cars = [];
@@ -31,7 +32,12 @@ function setup() {
 
   // load any images you need
   //bunnyImage = loadImage("assets/bunny.jpg");
+  bag = loadImage("assets/bag.png");
   imageMode(CENTER);
+  grass2 = loadImage("assets/grass2");
+  imageMode(CENTER);
+  badleave = loadImage("assets/badleave.jpeg");
+  leave = loadImage("assets/leave.jpeg");
   rectMode(CENTER);
   noStroke();
 }
@@ -39,6 +45,7 @@ function setup() {
 function draw() {
 
   background('#c6f5ff'); // light blue
+  image(grass2, 0, 0,windowWidth, windowHeight);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
