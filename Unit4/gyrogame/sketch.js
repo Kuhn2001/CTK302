@@ -21,7 +21,7 @@ function setup() {
   beta = 0;
   gamma = 0;
 
-
+  grass2 = loadImage("assets/grass2");
   // spawn a bunch of cars
   for (var i = 0; i < 40; i++) {
     cars.push(new Car());
@@ -33,11 +33,10 @@ function setup() {
   // load any images you need
   //bunnyImage = loadImage("assets/bunny.jpg");
   bag = loadImage("assets/bag.png");
-  imageMode(CENTER);
-  grass2 = loadImage("assets/grass2");
-  imageMode(CENTER);
+  grass2 = loadImage("assets/grass2.jpeg");
   badleave = loadImage("assets/badleave.jpeg");
   leave = loadImage("assets/leave.jpeg");
+  //imageMode(CENTER);
   rectMode(CENTER);
   noStroke();
 
@@ -45,8 +44,8 @@ function setup() {
 
 function draw() {
 
-  background('#c6f5ff'); // light blue
-//  image(grass2, 0, 0,windowWidth, windowHeight);
+//  background('#c6f5ff'); // light blue
+ image(grass2,0,0,windowWidth, windowHeight);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
@@ -61,9 +60,9 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  //image(bag, 0, 0, 500, 500);
-  fill('green');
-  ellipse(0, 0, 80, 80);
+  image(bag, 0, 0, 500, 500);
+//  fill('green');
+//  ellipse(0, 0, 80, 80);
   pop();
 
 
