@@ -59,7 +59,7 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  image(bag, 0, 0, 500, 500);
+  image(bag, frogPos.x, frogPos.y, 500, 500);
   pop();
 
 
