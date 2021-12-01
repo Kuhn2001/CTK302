@@ -34,7 +34,7 @@ function setup() {
   //bunnyImage = loadImage("assets/bunny.jpg");
   bag = loadImage("assets/bag.png");
   grass2 = loadImage("assets/grass2.jpeg");
-  badleave = loadImage("assets/badleave2.png");
+  badleave = loadImage("assets/badleaves2.png");
   leave = loadImage("assets/goodleave.png");
   //imageMode(CENTER);
 
@@ -43,14 +43,17 @@ function setup() {
 
 function draw() {
 
-//  background('#c6f5ff'); // light blue
- image(grass2,0,0,windowWidth, windowHeight);
+  //  background('#c6f5ff'); // light blue
+  image(grass2, 0, 0, windowWidth, windowHeight);
 
   // the map command !!!!
   // takes your variable and maps it from range 1 to range 2
   // map(yourVar, range1_x, range1_y, range2_x, range2_y) ;
   xPosition = map(gamma, -18, 18, 0, width);
   yPosition = map(beta, 25, 45, 0, height);
+//  xPosition = mouseX;
+//  yPosition = mouseY;
+
 
 
   // move the frog around the screen
@@ -59,7 +62,7 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  image(bag, frogPos.x, frogPos.y, 500, 500);
+  image(bag, 0, 0,175,225);
   pop();
 
 
@@ -137,30 +140,34 @@ window.addEventListener('devicemotion', function(e) {
 // car class!!
 function Car() {
   // attributes
-  this.pos = createVector(100, 100);
-  this.vel = createVector(random(-5, 5), random(-5, 5));
+  this.pos = createVector(random(width),random(-150));
+  this.vel = createVector(0, random(.5,8));
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
-  this.a = random(255);  // alpha opacity value for fill!
-
+  this.a = random(255); // alpha opacity value for fill!
+  this.type = random(2);
 
   // methods
   this.display = function() {
 
     // maybe use an image here instead!
-    image(leave,this.pos.x,this.pos.y,100,100);
-
+    if (this.type > 1) {
+      image(badleave, this.pos.x, this.pos.y, 100, 100);
+    } else {
+      image(leave, this.pos.x, this.pos.y, 100, 100);
+    }
 
   }
 
   this.drive = function() {
-    this.pos.add(this.vel);
 
-    if (this.pos.x > width) this.pos.x = 0;
-    if (this.pos.x < 0) this.pos.x = width;
-    if (this.pos.y > height) this.pos.y = 0;
-    if (this.pos.y < 0) this.pos.y = height;
+  //  if (this.pos.x > width) this.pos.x = 0;
+  //  if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y < height-150) {
+        this.pos.add(this.vel);
+    }
+  //  if (this.pos.y < 0) this.pos.y = height;
 
   }
 
