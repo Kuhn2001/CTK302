@@ -105,7 +105,9 @@ function deviceShaken() {
   for (var i = 0; i < 200; i++) {
     cars.push(new Car());
   }
+  state = 0;
 }
+
 
 function mouseReleased() {
 state = 1;
