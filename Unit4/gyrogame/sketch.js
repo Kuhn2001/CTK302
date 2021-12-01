@@ -108,7 +108,7 @@ function deviceShaken() {
 
 
 function mouseReleased() {
-  state = 1;
+  state = 0;
 
 
 }
