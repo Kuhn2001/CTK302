@@ -165,7 +165,7 @@ function Car() {
 
     //  if (this.pos.x > width) this.pos.x = 0;
     //  if (this.pos.x < 0) this.pos.x = width;
-    if (this.pos.y < height - 150) {
+    if (this.pos.y < height - 100) {
       this.pos.add(this.vel);
     }
     //  if (this.pos.y < 0) this.pos.y = height;
