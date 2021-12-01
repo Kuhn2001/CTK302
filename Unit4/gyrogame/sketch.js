@@ -107,9 +107,9 @@ function deviceShaken() {
   }
 }
 
-function touchStarted() {
+function mouseReleased() {
 state = 1;
-return false;
+
 
 }
 
