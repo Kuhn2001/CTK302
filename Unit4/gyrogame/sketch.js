@@ -105,7 +105,7 @@ function deviceShaken() {
   for (var i = 0; i < 200; i++) {
     cars.push(new Car());
   }
-  state = 0;
+  //state = 0;
 }
 
 
@@ -141,7 +141,7 @@ window.addEventListener('devicemotion', function(e) {
 function Car() {
   // attributes
   this.pos = createVector(random(width), random(-1000));
-  this.vel = createVector(0, random(.5, 8));
+  this.vel = createVector(0, random(.5, 3.5));
   this.size = random(80, 130);
   this.r = random(255);
   this.g = random(255);
