@@ -24,7 +24,7 @@ function setup() {
 
 
   // spawn a bunch of cars
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 500; i++) {
     cars.push(new Car());
   }
 
@@ -49,9 +49,11 @@ function draw() {
     case 0:
       image(splash, 0, 0, windowWidth, windowHeight);
       break;
+      case 1:
+        image(splash, 0, 0, windowWidth, windowHeight);
+        break;
 
-
-    case 1:
+    case 2:
       game();
       break;
 
@@ -102,10 +104,10 @@ function game() {
 function deviceShaken() {
   // re-spawn cars
   cars = []; // clear the array first
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 500; i++) {
     cars.push(new Car());
   }
-  state = 0;
+//  state = 0;
 }
 
 
@@ -143,9 +145,6 @@ function Car() {
   this.pos = createVector(random(width), random(-1000));
   this.vel = createVector(0, random(.5, 8));
   this.size = random(80, 130);
-  this.r = random(255);
-  this.g = random(255);
-  this.b = random(255);
   this.a = random(255); // alpha opacity value for fill!
   this.type = random(2);
 
