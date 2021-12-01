@@ -24,7 +24,7 @@ function setup() {
 
 
   // spawn a bunch of cars
-  for (var i = 0; i < 500; i++) {
+  for (var i = 0; i < 350; i++) {
     cars.push(new Car());
   }
 
@@ -94,14 +94,13 @@ function game() {
     if ((cars[i].pos.dist(frogPos) < 50) && (cars[i].pos.y < height - 150)) {
       cars.splice(i, 1);
     }
-  }
 
 }
 
 function deviceShaken() {
   // re-spawn cars
   cars = []; // clear the array first
-  for (var i = 0; i < 500; i++) {
+  for (var i = 0; i < 350; i++) {
     cars.push(new Car());
   }
     state = 0;
