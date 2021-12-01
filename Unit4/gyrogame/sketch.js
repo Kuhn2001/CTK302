@@ -49,11 +49,8 @@ function draw() {
     case 0:
       image(splash, 0, 0, windowWidth, windowHeight);
       break;
-    case 1:
-      image(splash, 0, 0, windowWidth, windowHeight);
-      break;
 
-    case 2:
+    case 1:
       game();
       break;
 
@@ -107,12 +104,12 @@ function deviceShaken() {
   for (var i = 0; i < 500; i++) {
     cars.push(new Car());
   }
-  //  state = 0;
+    state = 0;
 }
 
 
 function mouseReleased() {
-  state = 2;
+  state = 1;
 
 
 }
