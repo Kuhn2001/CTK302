@@ -21,7 +21,7 @@ function setup() {
   beta = 0;
   gamma = 0;
 
-  grass2 = loadImage("assets/grass2");
+
   // spawn a bunch of cars
   for (var i = 0; i < 40; i++) {
     cars.push(new Car());
@@ -34,11 +34,10 @@ function setup() {
   //bunnyImage = loadImage("assets/bunny.jpg");
   bag = loadImage("assets/bag.png");
   grass2 = loadImage("assets/grass2.jpeg");
-  badleave = loadImage("assets/badleave.jpeg");
-  leave = loadImage("assets/leave.jpeg");
+  badleave = loadImage("assets/badleave2.png");
+  leave = loadImage("assets/goodleave.png");
   //imageMode(CENTER);
-  rectMode(CENTER);
-  noStroke();
+
 
 }
 
@@ -152,10 +151,8 @@ function Car() {
   this.display = function() {
 
     // maybe use an image here instead!
-    fill(this.r, this.g, this.b, this.a);
-    ellipse(this.pos.x - 50, this.pos.y, 50, 50);
-    ellipse(this.pos.x + 50, this.pos.y, 50, 50);
-    rect(this.pos.x + 17, this.pos.y - 30, 80, 60) ;
+    image(leave,this.pos.x,this.pos.y,100,100);
+
 
   }
 
