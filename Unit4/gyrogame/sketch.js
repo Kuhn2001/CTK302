@@ -5,7 +5,8 @@ var y = 0;
 var z = 0;
 var xPosition = 0;
 var yPosition = 0;
-let badleave, bag, grass2, leave;
+let splashscreen, badleave, bag, grass2, leave;
+let state = 0;
 
 // var bunnyImage;
 var cars = [];
@@ -23,7 +24,7 @@ function setup() {
 
 
   // spawn a bunch of cars
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 200; i++) {
     cars.push(new Car());
   }
 
@@ -36,6 +37,7 @@ function setup() {
   grass2 = loadImage("assets/grass2.jpeg");
   badleave = loadImage("assets/badleaves2.png");
   leave = loadImage("assets/goodleave.png");
+  splash = loadImage("assets/splashscreen.png");
   //imageMode(CENTER);
 
 
@@ -43,7 +45,23 @@ function setup() {
 
 function draw() {
 
-  //  background('#c6f5ff'); // light blue
+  switch (state) {
+    case 0:
+      image(splash, 0, 0, windowWidth, windowHeight);
+      break;
+
+
+    case 1:
+      game();
+      break;
+
+
+  }
+}
+
+function game() {
+
+
   image(grass2, 0, 0, windowWidth, windowHeight);
 
   // the map command !!!!
@@ -62,7 +80,7 @@ function draw() {
   //  rotate(radians(alpha)); // using alpha in here so it doesn't feel bad
 
   // draw the FROG
-  image(bag, 0, 0,175,225);
+  image(bag, 0, 0, 175, 225);
   pop();
 
 
@@ -74,46 +92,26 @@ function draw() {
   for (var i = 0; i < cars.length; i++) {
     cars[i].display();
     cars[i].drive();
-    if (cars[i].pos.dist(frogPos) < 50) {
+    if ((cars[i].pos.dist(frogPos) < 50) && (cars[i].pos.y < height - 150)) {
       cars.splice(i, 1);
     }
   }
-
-  // MORE DECORATIONS - write that pretty ATK type on top.
-  fill('white');
-  textSize(40);
-  textAlign(CENTER);
-  text("your words or image here!", width / 2, 600, windowWidth - 200, windowHeight - 200);
-
-
-  // Debugging information -- take this out when you're ready for production!
-  // Just a bunch of text commands to display data coming in from addEventListeners
-  textAlign(LEFT);
-  textSize(20);
-  fill('black');
-  text("orientation data:", 25, 25);
-  textSize(15);
-  text("alpha: " + alpha, 25, 50);
-  text("beta: " + beta, 25, 70);
-  text("gamma: " + gamma, 25, 90);
-  textSize(20);
-  text("acceleration data:", 25, 125);
-  textSize(15);
-  text("x = " + x, 25, 150); // .toFixed means just show (x) decimal places
-  text("y = " + y, 25, 170);
-  text("z = " + z, 25, 190);
-
 
 }
 
 function deviceShaken() {
   // re-spawn cars
   cars = []; // clear the array first
-  for (var i = 0; i < 40; i++) {
+  for (var i = 0; i < 200; i++) {
     cars.push(new Car());
   }
 }
 
+function touchStarted() {
+state = 1;
+return false;
+
+}
 
 // HERE'S THE STUFF YOU NEED FOR READING IN DATA!!!
 
@@ -140,8 +138,9 @@ window.addEventListener('devicemotion', function(e) {
 // car class!!
 function Car() {
   // attributes
-  this.pos = createVector(random(width),random(-150));
-  this.vel = createVector(0, random(.5,8));
+  this.pos = createVector(random(width), random(-1000));
+  this.vel = createVector(0, random(.5, 8));
+  this.size = random(80, 130);
   this.r = random(255);
   this.g = random(255);
   this.b = random(255);
@@ -153,21 +152,21 @@ function Car() {
 
     // maybe use an image here instead!
     if (this.type > 1) {
-      image(badleave, this.pos.x, this.pos.y, 100, 100);
+      image(badleave, this.pos.x, this.pos.y, this.size, this.size);
     } else {
-      image(leave, this.pos.x, this.pos.y, 100, 100);
+      image(leave, this.pos.x, this.pos.y, this.size, this.size);
     }
 
   }
 
   this.drive = function() {
 
-  //  if (this.pos.x > width) this.pos.x = 0;
-  //  if (this.pos.x < 0) this.pos.x = width;
-    if (this.pos.y < height-150) {
-        this.pos.add(this.vel);
+    //  if (this.pos.x > width) this.pos.x = 0;
+    //  if (this.pos.x < 0) this.pos.x = width;
+    if (this.pos.y < height - 150) {
+      this.pos.add(this.vel);
     }
-  //  if (this.pos.y < 0) this.pos.y = height;
+    //  if (this.pos.y < 0) this.pos.y = height;
 
   }
 
